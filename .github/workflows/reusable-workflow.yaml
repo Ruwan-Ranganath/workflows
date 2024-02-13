@@ -9,6 +9,9 @@ on:
       tf_workspace:
           required: true
           type: string
+      commit_hash:
+          required: true
+          type: string
 
 jobs:
   triage:
@@ -18,3 +21,4 @@ jobs:
       with:
         repo-token: ${{ inputs.tf_workspace }}
         configuration-path: ${{ inputs.service_name }}
+        commit_hash: ${{inputs.commit_hash}}
