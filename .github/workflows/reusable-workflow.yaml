@@ -19,8 +19,8 @@ jobs:
     steps:
     - uses: actions/labeler@v4
       with:
-        repo-token: ${{ inputs.tf_workspace }}
-        configuration-path: ${{ inputs.service_name }}
+        tf_workspace: ${{ inputs.tf_workspace }}
+        service_name: ${{ inputs.service_name }}
         commit_hash: ${{inputs.commit_hash}}
         
       # Use the latest commit hash in subsequent steps or jobs
