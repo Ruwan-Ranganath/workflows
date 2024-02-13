@@ -22,3 +22,11 @@ jobs:
         repo-token: ${{ inputs.tf_workspace }}
         configuration-path: ${{ inputs.service_name }}
         commit_hash: ${{inputs.commit_hash}}
+        
+      # Use the latest commit hash in subsequent steps or jobs
+    - name: Use latest commit hash
+      run: |
+        echo "${{ inputs.tf_workspace }}"
+        echo "${{ inputs.service_name }}"
+        echo "${{inputs.commit_hash}}"
+    
