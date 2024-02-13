@@ -3,7 +3,7 @@ name: Reusable workflow example
 on:
   workflow_call:
     inputs:
-      service_name:
+      service_names:
         required: true
         type: string
       tf_workspace:
@@ -20,13 +20,13 @@ jobs:
     - uses: actions/labeler@v4
       with:
         tf_workspace: ${{ inputs.tf_workspace }}
-        service_name: ${{ inputs.service_name }}
+        service_names: ${{ inputs.service_names }}
         commit_hash: ${{inputs.commit_hash}}
         
       # Use the latest commit hash in subsequent steps or jobs
     - name: Use latest commit hash
       run: |
         echo "${{ inputs.tf_workspace }}"
-        echo "${{ inputs.service_name }}"
+        echo "${{ inputs.service_names }}"
         echo "${{inputs.commit_hash}}"
     
