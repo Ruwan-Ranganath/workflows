@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - uses: actions/checkout@v4
+
     - name: create branch
       run: git checkout -b 353-branch
       env:
