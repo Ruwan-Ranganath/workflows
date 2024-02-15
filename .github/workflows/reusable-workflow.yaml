@@ -22,8 +22,6 @@ jobs:
 
     - name: create branch
       run: git checkout -b 353-branch
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
       # Use the latest commit hash in subsequent steps or jobs
     - name: Use latest commit hash
