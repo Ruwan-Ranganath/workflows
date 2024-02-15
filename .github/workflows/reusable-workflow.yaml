@@ -33,6 +33,11 @@ jobs:
         echo "${{inputs.commit_hash}}"
         mkdir 565
         ls -lah
+
+    - name: git commit 
+      run: |
+        git add .
+        git commit -m "update env"
       
 
     - name: create pull request
