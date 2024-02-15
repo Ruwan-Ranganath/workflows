@@ -31,7 +31,7 @@ jobs:
         echo "${{ inputs.tf_workspace }}"
         echo "${{ inputs.service_names }}"
         echo "${{inputs.commit_hash}}"
-        cat 565
+        touch 565
         ls -lah
 
     - uses: EndBug/add-and-commit@v9
