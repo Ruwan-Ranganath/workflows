@@ -17,16 +17,21 @@ jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/labeler@v4
-      with:
-        tf_workspace: ${{ inputs.tf_workspace }}
-        service_names: ${{ inputs.service_names }}
-        commit_hash: ${{inputs.commit_hash}}
-        
+
+    - name: create branch
+      run: gh pr -b checkout 353
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
       # Use the latest commit hash in subsequent steps or jobs
     - name: Use latest commit hash
       run: |
         echo "${{ inputs.tf_workspace }}"
         echo "${{ inputs.service_names }}"
         echo "${{inputs.commit_hash}}"
+
+    - name: create pull request
+      run: gh pr create -B main -H 353 --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action'
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
