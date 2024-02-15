@@ -30,6 +30,8 @@ jobs:
         
       # Use the latest commit hash in subsequent steps or jobs
     - name: Use latest commit hash
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo "${{ inputs.tf_workspace }}"
         echo "${{ inputs.service_names }}"
@@ -38,6 +40,8 @@ jobs:
         ls -lah
 
     - uses: EndBug/add-and-commit@v9
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         author_name: Your Name
         author_email: mail@example.com
