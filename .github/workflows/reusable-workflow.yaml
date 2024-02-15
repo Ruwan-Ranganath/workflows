@@ -21,6 +21,9 @@ jobs:
     steps:
 
     - uses: actions/checkout@v4
+
+    - name: create branch
+      run: git checkout -b 353-branch
     
       # Use the latest commit hash in subsequent steps or jobs
     - name: Use latest commit hash
@@ -30,9 +33,7 @@ jobs:
         echo "${{inputs.commit_hash}}"
         mkdir 565
         ls
-        
-    # - name: create branch
-    #   run: git checkout -b 353-branch
+      
 
     - name: create pull request
       run: gh pr create -B main -H 353-branch --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action'
