@@ -19,7 +19,7 @@ jobs:
     steps:
 
     - name: create branch
-      run: gh pr -b checkout 353
+      run: git checkout -b 353-branch
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
@@ -31,7 +31,7 @@ jobs:
         echo "${{inputs.commit_hash}}"
 
     - name: create pull request
-      run: gh pr create -B main -H 353 --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action'
+      run: gh pr create -B main -H 353-branch --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action'
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
