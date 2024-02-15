@@ -32,7 +32,7 @@ jobs:
         echo "${{ inputs.service_names }}"
         echo "${{inputs.commit_hash}}"
         mkdir 565
-        ls
+        ls -lah
       
 
     - name: create pull request
