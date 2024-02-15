@@ -14,10 +14,7 @@ on:
           type: string
 
 
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
+permissions: write-all
           
 jobs:
   triage:
